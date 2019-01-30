@@ -1,0 +1,1 @@
+This little simple project consist method that returns TRUE or FALSE when time is in a range different times
