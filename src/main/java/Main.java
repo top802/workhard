@@ -1,18 +1,26 @@
 import me.wisehands.workinghours.WorkingHoursCheker;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
-        long timeOne = 1548062533295L;
-        long timeTwo = 1548084533295L;
+
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 
         Date date = new Date();
 
-        Date startTime = new Date(timeOne);
-        Date endTime = new Date(timeTwo);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm");
+
+        String stringStartTime = "08:32";
+        String stringEndTime = "22:22";
+
+        Date startTime = simpleDateFormat.parse(stringStartTime);
+        Date endTime = simpleDateFormat.parse(stringEndTime);
 
         WorkingHoursCheker.isWorkingTime(startTime, endTime, date);
 

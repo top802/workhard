@@ -20,6 +20,9 @@ public class WorkingHoursCheker {
      *  - startTime - is 4 February 09:30 2017
      *  - endTime - is 8 April 19:30 2019
      *  - date - is 5 May 16:20 2019
+     *
+     *  if you need to use UTC time zone try to use
+     *  TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
      */
 
 
@@ -40,10 +43,16 @@ public class WorkingHoursCheker {
         int currentMinute = (Integer.parseInt(formatM.format(date)));
         int currentTime = currentHour * 60 + currentMinute;
 
+        System.out.println("date " + date
+                + "\n" + "StartTime " + firstHour + ":" + firstMinute + " MinutesFromDayStart: " + firstTime
+                + "\n" + "EndTime " + lastHour + ":" + lastMinute + " MinutesFromDayStart: " + lastTime
+                + "\n" + "CurrentTime " + currentHour + ":" + currentMinute + " MinutesFromDayStart: " + currentTime + "\n");
 
         if (currentTime >= firstTime && currentTime < lastTime){
+            System.out.println("true");
             return true;
         } else {
+            System.out.println("false");
             return false;
         }
     }
